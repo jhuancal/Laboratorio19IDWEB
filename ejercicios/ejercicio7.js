@@ -1,12 +1,30 @@
-import multiplicar, { dividir } from "./multiplicacionDivision.js";
-import { sumar, restar } from "./sumaResta.js";
+var ejercicio7 = function () {
+    document.getElementById("buscarBtn").addEventListener("click", async () => {
+        const id = document.getElementById("pokemonId").value;
+        const resultado = document.getElementById("resultado");
 
-console.log("Suma:", sumar(5, 3));
-console.log("Resta:", restar(10, 4));
-console.log("Multiplicacion:", multiplicar(6, 7));
+        try {
+            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+            if (!res.ok) throw new Error("Pokemon no encontrado");
+            const data = await res.json();
 
-try {
-    console.log("Division:", dividir(10, 0));
-} catch (error) {
-    console.error("Error:", error.message);
-}
+            const habilidades = data.abilities.map(a => a.ability.name).join(", ");
+
+            resultado.innerHTML = `
+            <div class="card">
+                <img src="${data.sprites.front_default}" alt="${data.name}">
+                <h3>${data.name.toUpperCase()}</h3>
+                <p>ID: ${data.id}</p>
+                <p>Peso: ${data.weight}</p>
+                <p>Altura: ${data.height}</p>
+                <p>Habilidades: ${habilidades}</p>
+            </div>
+            `;
+        } catch (error) {
+            resultado.innerHTML = `<p style="color:red;">${error.message}</p>`;
+        }
+    });
+};
+
+ejercicio7();
+
