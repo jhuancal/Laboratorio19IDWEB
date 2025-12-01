@@ -3,8 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Ejercicio 12</title>
+    <style>
+        body { 
+            font-family: Arial; background: #f9f9f9; text-align: center; 
+        }
+        .container { 
+            display: flex; justify-content: center; flex-wrap: wrap; 
+        }
+        .card { 
+            margin: 10px; padding: 15px; width: 180px; 
+            border: 2px solid #555; border-radius: 10px; background: #fff;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.2); text-align: center;
+        }
+        img { 
+            width: 100px; 
+        }
+        button { 
+            padding: 8px 12px; margin: 10px; 
+        }
+    </style>
 </head>
 <body>
+    <h2>Primeros 12 Pokemones</h2>
+    <div class="container" id="pokemones"></div>
+    <button id="prevBtn">Anterior</button>
+    <button id="nextBtn">Siguiente</button>
     <script src="ejercicio12.js"></script>
 </body>
 </html>

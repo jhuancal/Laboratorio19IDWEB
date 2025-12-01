@@ -3,8 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Ejercicio 11</title>
+    <style>
+        body { 
+            font-family: Arial; background: #e6ffe6; text-align: center; 
+        }
+        input, button { 
+            padding: 8px; margin: 5px; 
+        }
+        .card { 
+            margin: 20px auto; padding: 15px; width: 300px; 
+            border: 2px solid #444; border-radius: 8px; background: #fff;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+        }
+        table { 
+            width: 100%; border-collapse: collapse; 
+        }
+        td { 
+            border: 1px solid #ccc; padding: 5px; 
+        }
+    </style>
 </head>
 <body>
+    <h2>Buscar Pokemon y mostrar estadisticas</h2>
+    <input id="pokemonInput" type="text" placeholder="Nombre o numero de pokemon">
+    <button id="buscarBtn">Buscar</button>
+    <div id="resultado"></div>
     <script src="ejercicio11.js"></script>
 </body>
 </html>
